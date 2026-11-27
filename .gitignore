@@ -2,3 +2,5 @@
 data/
 .env
 *.zip
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

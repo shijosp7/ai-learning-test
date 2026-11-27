@@ -1,0 +1,81 @@
+table Employee
+	lineageTag: 29cf05c3-5259-4746-b096-6e909790e583
+
+	column EmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c2d0116-5962-484a-a40b-3aef242fbb47
+		summarizeBy: none
+		sourceColumn: EmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 452b3f71-586b-4a33-859b-d45587303258
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 994726c9-50bc-4038-b6fc-e81d8617af9e
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Role
+		dataType: string
+		lineageTag: 9a6b4772-be81-4bfa-8686-c82a39cad6b8
+		summarizeBy: none
+		sourceColumn: Role
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitID
+		dataType: int64
+		formatString: 0
+		lineageTag: b77e7a5c-77cb-44b5-8d74-24578688e6cb
+		summarizeBy: none
+		sourceColumn: UnitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HireDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f6406c9c-ae39-4b9c-ad9c-cc5435dcf54d
+		summarizeBy: none
+		sourceColumn: HireDate
+
+		variation Variation
+			isDefault
+			relationship: ba74120b-75de-426e-8b4b-9436fd52ffd7
+			defaultHierarchy: LocalDateTable_ce250623-a837-4a5f-abdc-187df65f76b5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1cf6db7a-a8bd-42a0-9006-e3936e227698
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Employee = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost", "HospitalOps"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "Employee"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

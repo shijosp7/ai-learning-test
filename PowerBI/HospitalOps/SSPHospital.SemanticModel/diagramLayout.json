@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 336.73668842560119,
+            "y": -50
+          },
+          "nodeIndex": "Employee",
+          "nodeLineageTag": "29cf05c3-5259-4746-b096-6e909790e583",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 64.053787663831713
+          },
+          "nodeIndex": "EquipmentRequest",
+          "nodeLineageTag": "a4080755-7619-4a80-bdff-169d619830f7",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 586.68295895128176,
+            "y": 233.3293869459676
+          },
+          "nodeIndex": "PatientVolume",
+          "nodeLineageTag": "6b451e50-9f43-42b0-8f07-c185e59324a5",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 352.68295895128176,
+            "y": 251.72358657745855
+          },
+          "nodeIndex": "Staffing",
+          "nodeLineageTag": "8e7f4cd9-5e08-4aa6-8423-0bf2cf202968",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 60.330984614929605,
+            "y": 488.6587738919352
+          },
+          "nodeIndex": "Unit",
+          "nodeLineageTag": "9ea39773-35f9-4ad2-9534-7510e0f7010d",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 870.68295895128176,
+            "y": 233.3293869459676
+          },
+          "nodeIndex": "vw_PatientVolumeClean",
+          "nodeLineageTag": "d5152c6e-ba38-4e92-9d6f-c3b3249f6f3b",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,99 @@
+table PatientVolume
+	lineageTag: 6b451e50-9f43-42b0-8f07-c185e59324a5
+
+	column VolumeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f8b522b-92c7-43d2-96b9-910acaf235d4
+		summarizeBy: count
+		sourceColumn: VolumeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VisitDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4b4a8d7d-c2f2-48a3-a95e-2cda232f1120
+		summarizeBy: none
+		sourceColumn: VisitDate
+
+		variation Variation
+			isDefault
+			relationship: 2f5e7e0c-12b5-4145-9b7f-672ec0ca7a87
+			defaultHierarchy: LocalDateTable_3167b811-28e5-41db-a413-a38ad38288e7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitID
+		dataType: int64
+		formatString: 0
+		lineageTag: 11baf9ca-9d64-4879-bb9a-3f939596782a
+		summarizeBy: count
+		sourceColumn: UnitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Admissions
+		dataType: int64
+		formatString: 0
+		lineageTag: c51c601a-0218-497b-92bb-74cf907e7ca8
+		summarizeBy: sum
+		sourceColumn: Admissions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discharges
+		dataType: int64
+		formatString: 0
+		lineageTag: 05d863df-dc47-405c-8970-f82974f001e1
+		summarizeBy: sum
+		sourceColumn: Discharges
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgDailyCensus
+		dataType: int64
+		formatString: 0
+		lineageTag: d2e38706-f9d5-49ce-adb4-0e6ed6bb8031
+		summarizeBy: sum
+		sourceColumn: AvgDailyCensus
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 83bfc19d-5c3d-47f5-882d-36d791f8825f
+		summarizeBy: none
+		sourceColumn: LoadDate
+
+		variation Variation
+			isDefault
+			relationship: d80f0380-84cc-4f23-92ed-bdfb101f5914
+			defaultHierarchy: LocalDateTable_ae003388-7a9a-4065-a10d-234909255738.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SourceSystem
+		dataType: string
+		lineageTag: 9d085f8f-9427-4f2a-8812-0badf0e16e0e
+		summarizeBy: none
+		sourceColumn: SourceSystem
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PatientVolume = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost", "HospitalOps"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "PatientVolume"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

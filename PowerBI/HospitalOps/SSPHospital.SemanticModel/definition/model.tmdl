@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Employee","EquipmentRequest","PatientVolume","Staffing","Unit","vw_PatientVolumeClean"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Employee
+ref table DateTableTemplate_00d672f0-7155-47c5-a8a9-476a68d699d6
+ref table LocalDateTable_ce250623-a837-4a5f-abdc-187df65f76b5
+ref table EquipmentRequest
+ref table LocalDateTable_d8c04a02-d3e5-4a48-8954-533c56518ee0
+ref table LocalDateTable_df32c4a9-296a-48d4-a6a8-518b72f5cc33
+ref table PatientVolume
+ref table LocalDateTable_3167b811-28e5-41db-a413-a38ad38288e7
+ref table LocalDateTable_ae003388-7a9a-4065-a10d-234909255738
+ref table Staffing
+ref table LocalDateTable_57375e3d-ddd6-4659-a28c-af7b8d14df9b
+ref table Unit
+ref table vw_PatientVolumeClean
+ref table LocalDateTable_0c1acb3f-78a6-4052-a94d-38a1c4a9e064
+ref table LocalDateTable_c822281c-8ef9-4cb1-9b99-68b5345ced38
+
+ref cultureInfo en-US
+

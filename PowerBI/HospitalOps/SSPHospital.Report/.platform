@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "SSPHospital"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5ed090eb-ee1e-438d-9d21-59fe41565a9c"
+  }
+}

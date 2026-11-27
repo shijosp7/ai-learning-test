@@ -1,0 +1,105 @@
+table EquipmentRequest
+	lineageTag: a4080755-7619-4a80-bdff-169d619830f7
+
+	column RequestID
+		dataType: int64
+		formatString: 0
+		lineageTag: 690b2144-1328-4a6c-8a15-cc3e943d0bfb
+		summarizeBy: count
+		sourceColumn: RequestID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f2aa651-1de7-425d-880b-d237979b1c4a
+		summarizeBy: count
+		sourceColumn: UnitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EquipmentType
+		dataType: string
+		lineageTag: 9ce880c9-fd3d-4de3-b0c5-cf30f6a0503c
+		summarizeBy: none
+		sourceColumn: EquipmentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priority
+		dataType: string
+		lineageTag: 67b451c2-e48e-42c5-aaf9-2270968ffcdf
+		summarizeBy: none
+		sourceColumn: Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: de81b80a-b039-4e83-a7a2-1653efa6bc42
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column RequestedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e927a53b-8efe-4df4-92ee-c067d1ec07e0
+		summarizeBy: none
+		sourceColumn: RequestedDate
+
+		variation Variation
+			isDefault
+			relationship: 533d6941-56a3-47fd-8f0a-4305ab3c5b3a
+			defaultHierarchy: LocalDateTable_d8c04a02-d3e5-4a48-8954-533c56518ee0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClosedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c9a72bbd-e179-47bd-ad7b-32e6164a5052
+		summarizeBy: none
+		sourceColumn: ClosedDate
+
+		variation Variation
+			isDefault
+			relationship: ce4ab210-d7d7-4cb7-9fc3-d989ff2b3b66
+			defaultHierarchy: LocalDateTable_df32c4a9-296a-48d4-a6a8-518b72f5cc33.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column RequestedByEmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 28731d53-d4d9-4738-9405-e94e31664b69
+		summarizeBy: none
+		sourceColumn: RequestedByEmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 530ba96f-6d28-4fe0-b195-6e9addfd851b
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EquipmentRequest = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost", "HospitalOps"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "EquipmentRequest"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

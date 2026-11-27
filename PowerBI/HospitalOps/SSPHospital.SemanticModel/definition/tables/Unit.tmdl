@@ -1,0 +1,58 @@
+table Unit
+	lineageTag: 9ea39773-35f9-4ad2-9534-7510e0f7010d
+
+	column UnitID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6737c1fd-17c0-4fea-98c1-7019eccd39d6
+		summarizeBy: none
+		sourceColumn: UnitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitName
+		dataType: string
+		lineageTag: c1a383d9-b4ef-4930-921d-c34b16f87dcc
+		summarizeBy: none
+		sourceColumn: UnitName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LicensedBeds
+		dataType: int64
+		formatString: 0
+		lineageTag: c59d1eec-e613-44a9-8b18-a69619417666
+		summarizeBy: sum
+		sourceColumn: LicensedBeds
+
+		annotation SummarizationSetBy = Automatic
+
+	column NurseRatioDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 318603fc-ed42-45ee-82e7-c94dfed75f8d
+		summarizeBy: sum
+		sourceColumn: NurseRatioDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column NurseRatioNight
+		dataType: int64
+		formatString: 0
+		lineageTag: e4615459-d7a2-47fa-9230-ddf4e39db269
+		summarizeBy: sum
+		sourceColumn: NurseRatioNight
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Unit = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost", "HospitalOps"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "Unit"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

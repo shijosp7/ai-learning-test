@@ -1,0 +1,65 @@
+relationship ba74120b-75de-426e-8b4b-9436fd52ffd7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Employee.HireDate
+	toColumn: LocalDateTable_ce250623-a837-4a5f-abdc-187df65f76b5.Date
+
+relationship 533d6941-56a3-47fd-8f0a-4305ab3c5b3a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: EquipmentRequest.RequestedDate
+	toColumn: LocalDateTable_d8c04a02-d3e5-4a48-8954-533c56518ee0.Date
+
+relationship ce4ab210-d7d7-4cb7-9fc3-d989ff2b3b66
+	joinOnDateBehavior: datePartOnly
+	fromColumn: EquipmentRequest.ClosedDate
+	toColumn: LocalDateTable_df32c4a9-296a-48d4-a6a8-518b72f5cc33.Date
+
+relationship 2f5e7e0c-12b5-4145-9b7f-672ec0ca7a87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PatientVolume.VisitDate
+	toColumn: LocalDateTable_3167b811-28e5-41db-a413-a38ad38288e7.Date
+
+relationship d80f0380-84cc-4f23-92ed-bdfb101f5914
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PatientVolume.LoadDate
+	toColumn: LocalDateTable_ae003388-7a9a-4065-a10d-234909255738.Date
+
+relationship 055283b3-1171-4de7-bccc-2b780b73b9aa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Staffing.StaffDate
+	toColumn: LocalDateTable_57375e3d-ddd6-4659-a28c-af7b8d14df9b.Date
+
+relationship c363c7d4-6a45-4db6-a759-a0b19d2b852d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_PatientVolumeClean.VisitDate
+	toColumn: LocalDateTable_0c1acb3f-78a6-4052-a94d-38a1c4a9e064.Date
+
+relationship f258b39d-8b57-458e-8803-e97c92a730a3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_PatientVolumeClean.LoadDate
+	toColumn: LocalDateTable_c822281c-8ef9-4cb1-9b99-68b5345ced38.Date
+
+relationship 11960827-9876-432c-b912-fa46f8d246bc
+	fromColumn: Employee.UnitID
+	toColumn: Unit.UnitID
+
+	annotation PBI_IsFromSource = FS
+
+relationship c77d14c7-766b-4eaa-8545-22703c79a654
+	fromColumn: EquipmentRequest.RequestedByEmployeeID
+	toColumn: Employee.EmployeeID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5159f24f-f16b-4220-bc14-d58467145a14
+	isActive: false
+	fromColumn: EquipmentRequest.UnitID
+	toColumn: Unit.UnitID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8d481b78-7259-4e13-9bb2-4a4b6b38d137
+	fromColumn: Staffing.UnitID
+	toColumn: Unit.UnitID
+
+	annotation PBI_IsFromSource = FS
+

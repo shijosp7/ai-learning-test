@@ -1,0 +1,102 @@
+table Staffing
+	lineageTag: 8e7f4cd9-5e08-4aa6-8423-0bf2cf202968
+
+	column StaffingID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3327f836-4bd0-4c02-a88a-9d7324c0a580
+		summarizeBy: count
+		sourceColumn: StaffingID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StaffDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2c229456-050b-4c8d-87e5-f3d083936895
+		summarizeBy: none
+		sourceColumn: StaffDate
+
+		variation Variation
+			isDefault
+			relationship: 055283b3-1171-4de7-bccc-2b780b73b9aa
+			defaultHierarchy: LocalDateTable_57375e3d-ddd6-4659-a28c-af7b8d14df9b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitID
+		dataType: int64
+		formatString: 0
+		lineageTag: f40cbf69-c4ee-4124-ad5c-f04a5c8efa00
+		summarizeBy: none
+		sourceColumn: UnitID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shift
+		dataType: string
+		lineageTag: 02e8359f-240d-4067-beae-a96e3516feb9
+		summarizeBy: none
+		sourceColumn: Shift
+
+		annotation SummarizationSetBy = Automatic
+
+	column NursesNeeded
+		dataType: int64
+		formatString: 0
+		lineageTag: 46eba35d-e213-47fa-80b3-0542b5381928
+		summarizeBy: sum
+		sourceColumn: NursesNeeded
+
+		annotation SummarizationSetBy = Automatic
+
+	column NursesScheduled
+		dataType: int64
+		formatString: 0
+		lineageTag: 100169b7-aed4-4399-95c8-b78dc6dc212d
+		summarizeBy: sum
+		sourceColumn: NursesScheduled
+
+		annotation SummarizationSetBy = Automatic
+
+	column SickCalls
+		dataType: int64
+		formatString: 0
+		lineageTag: e74dd148-159c-42fe-8fd4-730b7aced7b0
+		summarizeBy: sum
+		sourceColumn: SickCalls
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgencyNurses
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b51a6b2-c75e-4452-957b-d5e82ef111b6
+		summarizeBy: sum
+		sourceColumn: AgencyNurses
+
+		annotation SummarizationSetBy = Automatic
+
+	column OvertimeHours
+		dataType: double
+		lineageTag: 2ef2f755-86ff-40d4-8a6b-8995e39b0e35
+		summarizeBy: sum
+		sourceColumn: OvertimeHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Staffing = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("localhost", "HospitalOps"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "Staffing"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+
